@@ -9,7 +9,8 @@ interface UserIsValid {
 }
 
 public class UserRegistrationLambdaFunction {
-
+	
+ 	// Patterns for all Types
 	static String namePattern = "^[A-Z]{1}+[a-z]{3,}$";
 	static String emailPattern = "^[a-z]*([.]?[a-z]+)*@bl[.]co([.]?in)*";
 	static String emailPattern1 = "[a-zA-Z0-9_.]*[-]*[+]*[0-9]*@[a-zA-Z0-9]+([.][a-zA-Z]+)+";
@@ -19,6 +20,7 @@ public class UserRegistrationLambdaFunction {
 
 	UserIsValid checkValid = (String pattern, String name) -> Pattern.matches(pattern, name);
 
+	// Method for Name
 	public void nameIsValid(String name) throws UserRegistrationException {
 		try {
 			if (checkValid.mathPattern(namePattern, name)) {
@@ -32,6 +34,7 @@ public class UserRegistrationLambdaFunction {
 		}
 	}
 
+	// Method for Mail
 	public void eMailIsValid(String email) throws UserRegistrationException {
 		try {
 			if ((checkValid.mathPattern(emailPattern, email)) || (checkValid.mathPattern(emailPattern1, email))) {
@@ -45,6 +48,7 @@ public class UserRegistrationLambdaFunction {
 		}
 	}
 
+	// Method for Phone Number
 	public void phoneNumIsValid(String phonenum) throws UserRegistrationException {
 		try {
 			if (checkValid.mathPattern(phoneNumPattern, phonenum)) {
@@ -57,6 +61,7 @@ public class UserRegistrationLambdaFunction {
 		}
 	}
 
+	// Method for Password
 	public void passWordIsValid(String password) throws UserRegistrationException {
 		try {
 			if ((checkValid.mathPattern(passWordPattern1, password))
